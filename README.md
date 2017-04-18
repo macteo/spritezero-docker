@@ -6,22 +6,17 @@ This is a Docker image to generate sprites with Mapbox's spritezero.
 
 ## Usage
 
+Sprites in svg format should be placed in a folder called `./data/sprites/_svg`
+
+The *json* and *png* files will be named *basic.png* and *basic.json*, with corresponding *@2x* and *@3x* references. If you would like to use a different name change the `THEME` environment variable in the row reported below.
+
 ```bash
-docker run -it -v $(pwd)/data:/data dolomate/spritezero:v1 /bin/bash
-
-# Replace with your sprites folder
-
-cd /data/sprites
-
-# Replace basic with the desired files name
-# _svg folder should contain the svg original files
-
-spritezero basic _svg
-spritezero --ratio=2 basic@2x _svg # Retina
-spritezero --ratio=3 basic@3x _svg # For mobile devices
+docker run -it -e THEME=basic -v ${PWD}/data:/data dolomate/spritezero
 ```
 
-## Build the image
+## Build the image from scratch
+
+Optionally you can build the image from scratch
 
 ```bash
 docker build -t spritezero .
