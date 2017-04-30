@@ -11,10 +11,11 @@ Sprites in *svg* format should be placed in a folder called `./data/sprites/_svg
 The *json* and *png* files will be named * _svg.png* and * _svg.json*, with corresponding *@2x* and *@3x* references. If you would like to use a different name change the `THEME` environment variable in the row reported below and place the svg files in the corresponding folder.
 
 ```sh
-docker run -it -e THEME=_svg -v ${PWD}/data:/data dolomate/spritezero
+docker run -it -e FOLDER=_svg THEME=sprites -v ${PWD}/data:/data dolomate/spritezero
 ```
 
-You can omit the `-e THEME=_svg` part if the *_svg* name suits your needs.
+You can omit the `-e FOLDER=_svg` part if the *_svg* folder contains the input images.
+You can omit the `-e THEME=sprites` part if the *sprites* output name suits your needs.
 
 ## Build the image from scratch
 
