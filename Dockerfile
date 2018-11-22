@@ -8,7 +8,7 @@ RUN apt update && apt install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN apt update && apt install -yq \
-    nodejs npm nodejs-legacy
+    nodejs npm
 
 RUN npm install -g @mapbox/spritezero-cli
 
